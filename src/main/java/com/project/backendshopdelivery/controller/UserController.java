@@ -1,15 +1,17 @@
 package com.project.backendshopdelivery.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.project.backendshopdelivery.dto.SignupRequest;
+import com.project.backendshopdelivery.service.UserService;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("api/v1/user")
 public class UserController {
-    @GetMapping()
-    public String getUser(@RequestParam String name){
-        return "I am man" + name;
+    private final UserService userService;
+    @PostMapping("/signup")
+    public void getUser(@RequestBody SignupRequest signupRequest){
+        userService.signup(signupRequest);
     }
 }
