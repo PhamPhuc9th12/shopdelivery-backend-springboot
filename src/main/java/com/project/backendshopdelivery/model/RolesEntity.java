@@ -1,4 +1,4 @@
 package com.project.backendshopdelivery.model;
 
-public class Food {
+public class RolesEntity {
 }
