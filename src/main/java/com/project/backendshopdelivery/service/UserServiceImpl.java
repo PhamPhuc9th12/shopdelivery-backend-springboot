@@ -3,6 +3,7 @@ package com.project.backendshopdelivery.service;
 import com.project.backendshopdelivery.dto.LoginRequest;
 import com.project.backendshopdelivery.dto.SignupRequest;
 import com.project.backendshopdelivery.dto.UserResponse;
+import com.project.backendshopdelivery.exceptionhandle.UserExceptionHandle;
 import com.project.backendshopdelivery.mapper.UserMapper;
 import com.project.backendshopdelivery.model.UserEntity;
 import com.project.backendshopdelivery.repository.UserRepository;
@@ -22,8 +23,6 @@ import java.util.Objects;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService{
 
-
-
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     @Override
@@ -41,7 +40,7 @@ public class UserServiceImpl implements UserService{
         if(BCrypt.checkpw(loginRequest.getPassword(),hashedPassword)){
             return TokenHelper.generateToken(userEntity);
         }
-        throw new RuntimeException("can't login");
+        throw new UserExceptionHandle("not found");
     }
 
     @Override
