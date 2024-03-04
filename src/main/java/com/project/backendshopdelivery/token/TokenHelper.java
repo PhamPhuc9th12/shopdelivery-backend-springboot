@@ -11,9 +11,9 @@ import java.util.Date;
 
 @AllArgsConstructor
 public class TokenHelper {
-    private static final String SECRET_KEY = "keyskeyskeyskeyskeyskeyskeyskeys";
+    private static final String SECRET_KEY = "keyskeyskeyskeyskeyskeyskeyskeyskeyskeyskeyskleykeyskehsahfsaduadhusadhasudhasduahdaudssda";
     private static final long EXPIRATION_TIME = 864_000_000; // 10 days
-    public String generateToken(UserEntity userEntity){
+    public static String generateToken(UserEntity userEntity){
         Date now = new Date();
         Date experationdate = new Date(now.getTime()+EXPIRATION_TIME);
         return Jwts.builder()
@@ -25,9 +25,10 @@ public class TokenHelper {
                 .signWith(SignatureAlgorithm.HS512,SECRET_KEY)
                 .compact();
     }
-    public Long getUserIdFromToken(String token){
+
+    public static Long getUserIdFromToken(String token){
         token = token.substring(7); // Bearer.length = 7
-        Claims claims = Jwts.parser()
+        Claims claims = Jwts.parser()// tạo doi tuong parser de phan tich chuoi jwt
                 .setSigningKey(SECRET_KEY)
                 .parseClaimsJws(token)
                 .getBody();

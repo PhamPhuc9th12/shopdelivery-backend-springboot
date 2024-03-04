@@ -1,10 +1,10 @@
 package com.project.backendshopdelivery.model;
 
 
+
 import lombok.*;
 
 import javax.persistence.*;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
