@@ -1,29 +1,23 @@
-package com.project.backendshopdelivery.model;
+package com.project.backendshopdelivery.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "tbl_restaurant")
-public class RestaurantEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class RestaurantRequest {
     private Long id;
     private String title;
     private String subtitle;
     private String description;
-    private String image;
     private boolean isFreeship;
     private String address;
-    private Date openDate;
+    private LocalDateTime openDate;
 }

@@ -34,4 +34,16 @@ public class TokenHelper {
                 .getBody();
         return claims.get("user_id", Long.class);
     }
+
+    public static boolean verifyToken(String token){
+        try {
+            Jwts.parserBuilder()
+                    .setSigningKey(SECRET_KEY)
+                    .build()
+                    .parseClaimsJws(token);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 }
