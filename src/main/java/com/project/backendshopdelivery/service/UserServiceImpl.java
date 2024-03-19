@@ -1,21 +1,19 @@
 package com.project.backendshopdelivery.service;
 
+import com.project.backendshopdelivery.common.Common;
 import com.project.backendshopdelivery.dto.LoginRequest;
 import com.project.backendshopdelivery.dto.SignupRequest;
 import com.project.backendshopdelivery.dto.UserResponse;
 import com.project.backendshopdelivery.exceptionhandle.UserExceptionHandle;
 import com.project.backendshopdelivery.mapper.UserMapper;
-import com.project.backendshopdelivery.model.UserEntity;
+import com.project.backendshopdelivery.entity.UserEntity;
 import com.project.backendshopdelivery.repository.UserRepository;
 import com.project.backendshopdelivery.token.TokenHelper;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,12 +33,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public String login(LoginRequest loginRequest) {
         UserEntity userEntity = userRepository.getByUserName(loginRequest.getUserName());
-        if(Objects.isNull(userEntity)) throw new RuntimeException("Null Object");
+        if(Objects.isNull(userEntity)) throw new RuntimeException(Common.FAILED_ACTION);
         String hashedPassword = userEntity.getPassword();
         if(BCrypt.checkpw(loginRequest.getPassword(),hashedPassword)){
             return TokenHelper.generateToken(userEntity);
         }
-        throw new UserExceptionHandle("not found");
+        throw new UserExceptionHandle(Common.NOT_FOUND);
     }
 
     @Override

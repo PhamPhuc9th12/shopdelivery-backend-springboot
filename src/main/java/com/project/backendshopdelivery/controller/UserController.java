@@ -15,18 +15,6 @@ import java.util.List;
 @RequestMapping("api/v1/user")
 public class UserController {
     private final UserService userService;
-
-    @PostMapping("/signup")
-    public void signup(@RequestBody SignupRequest signupRequest) {
-        userService.signup(signupRequest);
-    }
-
-    @Operation(summary = "Login and receive Token")
-    @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
-        return userService.login(loginRequest);
-    }
-
     @GetMapping("/users")
     public List<UserResponse> getListUsers() {
         return userService.getusers();

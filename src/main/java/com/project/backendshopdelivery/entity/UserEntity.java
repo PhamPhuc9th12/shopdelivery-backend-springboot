@@ -1,4 +1,4 @@
-package com.project.backendshopdelivery.model;
+package com.project.backendshopdelivery.entity;
 
 
 
