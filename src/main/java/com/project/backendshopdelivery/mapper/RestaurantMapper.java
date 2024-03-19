@@ -2,7 +2,7 @@ package com.project.backendshopdelivery.mapper;
 
 import com.project.backendshopdelivery.dto.RestaurantRequest;
 import com.project.backendshopdelivery.dto.RestaurantResponse;
-import com.project.backendshopdelivery.model.RestaurantEntity;
+import com.project.backendshopdelivery.entity.RestaurantEntity;
 import org.mapstruct.Mapper;
 
 @Mapper

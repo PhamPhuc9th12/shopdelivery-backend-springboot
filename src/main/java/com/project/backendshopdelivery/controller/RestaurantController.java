@@ -1,10 +1,14 @@
 package com.project.backendshopdelivery.controller;
 
 import com.project.backendshopdelivery.dto.RestaurantRequest;
+import com.project.backendshopdelivery.dto.RestaurantResponse;
 import com.project.backendshopdelivery.service.FileService;
 import com.project.backendshopdelivery.service.RestaurantService;
 import lombok.AllArgsConstructor;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +38,10 @@ public class RestaurantController {
 
         return new ResponseEntity<>(restaurantService.insertRestaurant(file,title,subtile,description,isFreeship,
                 address,  openDate), HttpStatus.OK);
+    }
+    @GetMapping
+    public Page<RestaurantResponse> getAllRestaurant(@ParameterObject Pageable pageable){
+       return restaurantService.getAllRestaurant(pageable);
     }
 
     @GetMapping("/file/{filename:.*}")

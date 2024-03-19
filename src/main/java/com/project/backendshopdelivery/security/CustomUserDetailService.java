@@ -1,7 +1,7 @@
 package com.project.backendshopdelivery.security;
 
 import com.project.backendshopdelivery.common.Common;
-import com.project.backendshopdelivery.model.UserEntity;
+import com.project.backendshopdelivery.entity.UserEntity;
 import com.project.backendshopdelivery.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.User;

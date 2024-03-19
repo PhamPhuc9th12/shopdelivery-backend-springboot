@@ -6,7 +6,7 @@ import com.project.backendshopdelivery.dto.SignupRequest;
 import com.project.backendshopdelivery.dto.UserResponse;
 import com.project.backendshopdelivery.exceptionhandle.UserExceptionHandle;
 import com.project.backendshopdelivery.mapper.UserMapper;
-import com.project.backendshopdelivery.model.UserEntity;
+import com.project.backendshopdelivery.entity.UserEntity;
 import com.project.backendshopdelivery.repository.UserRepository;
 import com.project.backendshopdelivery.token.TokenHelper;
 import lombok.AllArgsConstructor;

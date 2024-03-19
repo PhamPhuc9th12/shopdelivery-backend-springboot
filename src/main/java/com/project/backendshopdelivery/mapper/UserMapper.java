@@ -2,7 +2,7 @@ package com.project.backendshopdelivery.mapper;
 
 import com.project.backendshopdelivery.dto.LoginRequest;
 import com.project.backendshopdelivery.dto.SignupRequest;
-import com.project.backendshopdelivery.model.UserEntity;
+import com.project.backendshopdelivery.entity.UserEntity;
 import org.mapstruct.Mapper;
 
 @Mapper

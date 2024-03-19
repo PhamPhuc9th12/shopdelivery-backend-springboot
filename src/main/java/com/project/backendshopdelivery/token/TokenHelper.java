@@ -1,11 +1,10 @@
 package com.project.backendshopdelivery.token;
 
-import com.project.backendshopdelivery.model.UserEntity;
+import com.project.backendshopdelivery.entity.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.util.Date;
 
